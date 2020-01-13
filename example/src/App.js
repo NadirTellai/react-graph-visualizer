@@ -50,18 +50,18 @@ export default class App extends Component {
               }
             ]
           }}
-          width={850}
-          height={450}
+          width={700}
+          height={500}
           backgroundColor={"#e5e6e7"}
-          linkStyle={{ distance: 500, color: "blue" }}
+          linkStyle={{ directed: true, distance: 300, color: "black" }}
           nodeStyle={{
-            radius: 40,
+            radius: 30,
             borderWidth: 2,
-            borderColor: "red",
-            background: "iage" //or image
+            borderColor: "black",
+            background: "black"
           }}
-          nameStyle={{ size: 20, color: "green", x: "right", y: "top" }}
-          labelStyle={{ show: true, size: 10, color: "red" }}
+          nameStyle={{ size: 20, color: "black", x: "center", y: "bottom" }}
+          labelStyle={{ show: false, size: 10, color: "black" }}
         />
       </div>
     );

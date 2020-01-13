@@ -141,7 +141,7 @@ const Graph = React.memo(
             class: "edgepath",
             "fill-opacity": 0,
             "stroke-width": 3,
-            "marker-end": "url(#arrowhead)",
+            "marker-end": realProps.directed,
             stroke: realProps.linkColor,
             "stroke-opacity": 1,
             id: function(d, i) {
@@ -439,7 +439,7 @@ const Graph = React.memo(
         props.linkStyle.distance == undefined ||
         isNaN(props.linkStyle.distance)
       )
-        realProps.distance = 200;
+        realProps.distance = 300;
       else realProps.distance = props.linkStyle.distance;
 
       if (props.linkStyle.color == undefined || !isColor(props.linkStyle.color))
@@ -472,10 +472,10 @@ const Graph = React.memo(
         realProps.nameSize = 20;
       else realProps.nameSize = props.nameStyle.size;
 
-      if (props.width == undefined || isNaN(props.width)) realProps.width = 850;
+      if (props.width == undefined || isNaN(props.width)) realProps.width = 700;
       else realProps.width = props.width;
       if (props.height == undefined || isNaN(props.height))
-        realProps.height = 450;
+        realProps.height = 500;
       else realProps.height = props.height;
 
       if (
@@ -484,12 +484,27 @@ const Graph = React.memo(
       )
         realProps.showLabel = false;
       else realProps.showLabel = props.labelStyle.show;
+
+      if (props.backgroundColor == undefined || !isColor(props.backgroundColor))
+        realProps.backgroundColor = "#e5e6e7";
+      else realProps.backgroundColor = props.backgroundColor;
+
+      if (
+        props.linkStyle.directed == undefined ||
+        typeof props.linkStyle.directed != "boolean"
+      )
+        realProps.directed = "url(#arrowhead)";
+      else
+        realProps.directed = props.linkStyle.directed
+          ? "url(#arrowhead)"
+          : "none";
     }
+
     return (
       <div>
         <button id="button" ref={btn}></button>
         <svg
-          style={{ backgroundColor: props.backgroundColor }}
+          style={{ backgroundColor: realProps.backgroundColor }}
           width={realProps.width}
           height={realProps.height}
         ></svg>

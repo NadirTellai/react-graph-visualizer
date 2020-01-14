@@ -32,15 +32,11 @@ class Example extends Component {
 }
 ```
 ## API 
-| Prop         | Type          | Default  |
-| ------------- |:-------------:| -----:|
-| initialGraph    |object | |
+| Prop         | Type          | Default  |description|
+| ------------- |:-------------:| -----:|----:|
+initialGraph| object| ```jsx{nodes:[],links:[]}```| Graph initial data|
 
-| ref             |ref object      |     |
-| width           |number      |    |
-| height          |                 |     |
-| height          |                 |    |
-| backgroundColor |                 |     |
+
 
 
 ## License

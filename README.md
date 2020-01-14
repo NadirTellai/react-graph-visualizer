@@ -1,4 +1,4 @@
-# react-graph-visualizer
+# react-graph-visualizer-Componenet
 
 > a react component to visualize directed weighted graphs easily
 

@@ -36,6 +36,14 @@ class Example extends Component {
 | ------------- |:-------------:| -----:|----:|
 |initialGraph|object|``` {nodes:[],links:[]} ```|Graph initial data|
 |initialGraph.nodes|Array |[]|The nodes array of objects ``` {name:”string”, id:”number”, img=’string’}``` |
+|initialGraph.links|Array|[]|The links array of objects {source:”number”, target:’number’, label:”string”}|
+|width|number|700|the vertical length of the component|
+|height|number|500|the horizontal  length of the component|
+|ref |Ref object||The ref object to use to change graph data|
+
+
+
+
 
 
 

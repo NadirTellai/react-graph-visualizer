@@ -1,6 +1,6 @@
 # react-graph-visualizer
 
-> a react component to visualize interactive directed weighted graphs easily.
+> a react component to visualize interactive directed and weighted graphs easily.
 
 [![NPM](https://img.shields.io/npm/v/react-graph-visualizer.svg)](https://www.npmjs.com/package/react-graph-visualizer) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -32,7 +32,11 @@ class Example extends Component {
 }
 ```
 ## API 
-
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
 
 
 ## License

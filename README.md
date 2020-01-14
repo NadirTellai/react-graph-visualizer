@@ -33,14 +33,17 @@ class Example extends Component {
 ```
 ## API 
 | Prop         | Type          | Default  |description|
-| ------------- |:-------------:| -----:|----:|
+| ------------- |:-------------:| :-----:|:----:|
 |initialGraph|object|``` {nodes:[],links:[]} ```|Graph initial data|
 |initialGraph.nodes|Array |[]|The nodes array of objects ``` {name:”string”, id:”number”, img=’string’}``` |
 |initialGraph.links|Array|[]|The links array of objects {source:”number”, target:’number’, label:”string”}|
 |width|number|700|the vertical length of the component|
 |height|number|500|the horizontal  length of the component|
 |ref |Ref object||The ref object to use to change graph data|
-
+|backgroundColor|string|#e5e6e7|The component background color|
+|linkStyle.directed|boolean|true|Specifies the type of the graph directed or undirected|
+|linkStyle.distance|number|300|The length of the links, or the distance between nodes|
+|linkStyle.color|string|black|Links color: “red”, “orange”, “#000”, “#e5e6e7”|
 
 
 

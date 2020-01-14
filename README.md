@@ -33,7 +33,7 @@ class Example extends Component {
 ```
 ## API 
 | Prop         | Type          | Default  |description|
-| ------------- |:-------------:| :-----:|:----:|
+| :------------- |:-------------| :-----|:----|
 |initialGraph|object|``` {nodes:[],links:[]} ```|Graph initial data|
 |initialGraph.nodes|Array |[]|The nodes array of objects ``` {name:”string”, id:”number”, img=’string’}``` |
 |initialGraph.links|Array|[]|The links array of objects {source:”number”, target:’number’, label:”string”}|
@@ -44,6 +44,7 @@ class Example extends Component {
 |linkStyle.directed|boolean|true|Specifies the type of the graph directed or undirected|
 |linkStyle.distance|number|300|The length of the links, or the distance between nodes|
 |linkStyle.color|string|black|Links color: “red”, “orange”, “#000”, “#e5e6e7”|
+
 
 
 

@@ -21,6 +21,7 @@ the debt settler is react app made using the react-graph-visualizer.
 ```jsx
 import React, { useState, useRef} from "react";
 import Graph from 'react-graph-visualizer'
+
 function App() {
   const graphRef = useRef();
   const [graph, setGraph] = useState({ nodes: [
@@ -31,7 +32,8 @@ function App() {
       {
         name: "B",
         id: 2
-      }],
+      }
+      ],
       links: [
       {
         source: 1,

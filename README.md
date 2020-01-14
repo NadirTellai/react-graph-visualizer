@@ -36,7 +36,7 @@ class Example extends Component {
 | ------------- |:-------------:| -----:|----:|
 |initialGraph| object| ``` {nodes:[],links:[]} ```| Graph initial data|
 
-|initialGraph.nodes|Array |[]|The nodes array of objects ``` {name:”string”, id:”number”, img=’string’}```|
+|initialGraph.nodes|Array |[]|The nodes array of objects ``` {name:”string”, id:”number”, img=’string’}``` |
 
 
 

@@ -38,7 +38,7 @@ const Graph = React.memo(
       mutate = mutate.bind(this);
 
       //variable declarations
-      var svg = d3.select("svg"),
+      var svg = d3.select("#" + realProps.id),
         width = +svg.attr("width"),
         height = +svg.attr("height"),
         node,
@@ -131,14 +131,14 @@ const Graph = React.memo(
         link = linkEnter.merge(link);
 
         // edges path between nodes
-        d3.selectAll(".edgepath").remove();
+        d3.selectAll(".edgepath" + realProps.id).remove();
         edgepaths = svg
-          .selectAll(".edgepath")
+          .selectAll(".edgepath" + realProps.id)
           .data(links)
           .enter()
           .append("path")
           .attrs({
-            class: "edgepath",
+            class: "edgepath" + realProps.id,
             "fill-opacity": 0,
             "stroke-width": 3,
             "marker-end": realProps.directed,
@@ -146,8 +146,11 @@ const Graph = React.memo(
             "stroke-opacity": 1,
             id: function(d, i) {
               if (d.source.id && d.target.id)
-                return "edgepath " + d.source.id + "- " + d.target.id;
-              else return "edgepath " + d.source + "- " + d.target;
+                return (
+                  "edgepath " + d.source.id + "- " + d.target.id + realProps.id
+                );
+              else
+                return "edgepath " + d.source + "- " + d.target + realProps.id;
             }
           })
           .style("pointer-events", "none");
@@ -172,8 +175,11 @@ const Graph = React.memo(
             .append("textPath")
             .attr("xlink:href", function(d, i) {
               if (d.source.id && d.target.id)
-                return "#edgepath " + d.source.id + "- " + d.target.id;
-              else return "#edgepath " + d.source + "- " + d.target;
+                return (
+                  "#edgepath " + d.source.id + "- " + d.target.id + realProps.id
+                );
+              else
+                return "#edgepath " + d.source + "- " + d.target + realProps.id;
             })
             .style("text-anchor", "middle")
             .style("font-size", realProps.labelSize)
@@ -237,7 +243,7 @@ const Graph = React.memo(
         node = nodeEnter.merge(node);
 
         // draw event listener
-        d3.select("#button").on("click", draw);
+        d3.select("#button" + realProps.id).on("click", draw);
 
         // simulation params
         simulation.nodes(nodes);
@@ -494,21 +500,25 @@ const Graph = React.memo(
         props.linkStyle.directed == undefined ||
         typeof props.linkStyle.directed != "boolean"
       )
-        realProps.directed = "url(#arrowhead)";
+        realProps.directed = `url(#arrowhead)`;
       else
         realProps.directed = props.linkStyle.directed
-          ? "url(#arrowhead)"
+          ? `url(#arrowhead)`
           : "none";
+
+      if (props.id == undefined) realProps.id = "id";
+      else realProps.id = props.id;
     }
 
     return (
       <div>
         <button
-          id="button"
+          id={"button" + realProps.id}
           style={{ visibility: "hidden", position: "absolute" }}
           ref={btn}
         ></button>
         <svg
+          id={realProps.id}
           style={{ backgroundColor: realProps.backgroundColor }}
           width={realProps.width}
           height={realProps.height}

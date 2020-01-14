@@ -1,15 +1,3 @@
 .edgelabel {
   stroke-width: 5px;
 }
-.node:hover {
-  cursor: move !important;
-}
-
-#button {
-  visibility: hidden;
-  position: absolute;
-}
-
-svg {
-  border: solid 1px black;
-}

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import Graph from "react-graph-visualizer";
 
 export default class App extends Component {
@@ -21,12 +20,12 @@ export default class App extends Component {
               },
               {
                 name: "Neo4j",
-                label: "Database",
+
                 id: 3
               },
               {
                 name: "Graph Database",
-                label: "Database",
+
                 id: 4
               }
             ],
@@ -55,12 +54,12 @@ export default class App extends Component {
           backgroundColor={"#e5e6e7"}
           linkStyle={{ directed: true, distance: 300, color: "black" }}
           nodeStyle={{
-            radius: 30,
+            radius: 20,
             borderWidth: 2,
             borderColor: "black",
             background: "black"
           }}
-          nameStyle={{ size: 20, color: "black", x: "center", y: "bottom" }}
+          nameStyle={{ size: 15, color: "black", x: "center", y: "bottom" }}
           labelStyle={{ show: false, size: 10, color: "black" }}
         />
       </div>

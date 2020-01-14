@@ -195,6 +195,7 @@ const Graph = React.memo(
           .enter()
           .append("g")
           .attr("class", "node")
+          .attr("cursor", "move")
           .call(drag);
         nodeEnter
           .append("circle")
@@ -502,7 +503,11 @@ const Graph = React.memo(
 
     return (
       <div>
-        <button id="button" ref={btn}></button>
+        <button
+          id="button"
+          style={{ visibility: "hidden", position: "absolute" }}
+          ref={btn}
+        ></button>
         <svg
           style={{ backgroundColor: realProps.backgroundColor }}
           width={realProps.width}

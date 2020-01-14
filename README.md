@@ -56,6 +56,12 @@ function App() {
 export default App;
       
 ```
+
+to change the graph data call the function **setGraph** as follow.
+```jsx
+graphRef.current.setGraph(newGraphData);
+```
+
 ## API 
 | Prop         | Type          | Default  |Description|
 | :------------- |:-------------| :-----|:----|

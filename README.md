@@ -19,17 +19,40 @@ the debt settler is react app made using the react-graph-visualizer.
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
-
+import React, { useState, useRef} from "react";
 import Graph from 'react-graph-visualizer'
-
-class Example extends Component {
-  render () {
-    return (
-      <Graph />
-    )
-  }
+function App() {
+  const graphRef = useRef();
+  const [graph, setGraph] = useState({ nodes: [
+      {
+        name: "A",
+        id: 1
+      },
+      {
+        name: "B",
+        id: 2
+      }],
+      links: [
+      {
+        source: 1,
+        target: 2,
+        label: "A-B"
+      }
+      ]
+      });
+     return (
+      <Graph
+        ref={graphRef}
+        initialGraph={graph}
+        width={850}
+        height={450}
+        backgroundColor={"white"}
+      />
+  );
 }
+
+export default App;
+      
 ```
 ## API 
 | Prop         | Type          | Default  |Description|
@@ -39,7 +62,7 @@ class Example extends Component {
 |**initialGraph.links**|Array|[]|The links array of objects ```{source:number, target:number, label:string}```|
 |**width**|number|700|the vertical length of the component.|
 |**height**|number|500|the horizontal  length of the component.|
-|**ref**|Ref object||The ref object to use to change graph data.|
+|**ref**|Ref object|/|The ref object to use to change graph data.|
 |**backgroundColor**|string|#e5e6e7|The component background color.|
 |**linkStyle.directed**|boolean|true|Specifies the type of the graph, directed or undirected.|
 |**linkStyle.distance**|number|300|The length of the links, or the distance between the nodes.|

@@ -34,7 +34,7 @@ class Example extends Component {
 ## API 
 | Prop         | Type          | Default  |description|
 | ------------- |:-------------:| -----:|----:|
-|initialGraph| object| ``` {nodes:[],links:[]} ```| Graph initial data|
+|initialGraph|object|``` {nodes:[],links:[]} ```|Graph initial data|
 |initialGraph.nodes|Array |[]|The nodes array of objects ``` {name:”string”, id:”number”, img=’string’}``` |
 
 

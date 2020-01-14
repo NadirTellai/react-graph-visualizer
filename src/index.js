@@ -70,7 +70,7 @@ const Graph = React.memo(
         .append("defs")
         .append("marker")
         .attrs({
-          id: "arrowhead",
+          id: "arrowhead" + realProps.id,
           viewBox: "-0 -5 10 10",
           refX:
             realProps.radius == 10
@@ -84,7 +84,7 @@ const Graph = React.memo(
         })
         .append("svg:path")
         .attr("d", "M 0,-5 L 10 ,0 L 0,5")
-        .attr("class", "arrowhead")
+        .attr("class", "arrowhead" + realProps.id)
         .style("stroke", "none")
         .style("fill", realProps.linkColor);
 
@@ -500,10 +500,10 @@ const Graph = React.memo(
         props.linkStyle.directed == undefined ||
         typeof props.linkStyle.directed != "boolean"
       )
-        realProps.directed = `url(#arrowhead)`;
+        realProps.directed = `url(#arrowhead${realProps.id})`;
       else
         realProps.directed = props.linkStyle.directed
-          ? `url(#arrowhead)`
+          ? `url(#arrowhead${realProps.id})`
           : "none";
 
       if (props.id == undefined) realProps.id = "id";

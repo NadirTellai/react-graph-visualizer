@@ -32,11 +32,15 @@ class Example extends Component {
 }
 ```
 ## API 
-| Prop         | Type          | default  |
+| Prop         | Type          | Default  |
 | ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| initialGraph    |object | |
+
+| ref             |ref object      |     |
+| width           |number      |    |
+| height          |                 |     |
+| height          |                 |    |
+| backgroundColor |                 |     |
 
 
 ## License

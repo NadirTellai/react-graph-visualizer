@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+input[type="checkbox"] {
+  appearance: none;
+}
+.buttons {
+  height: 20vh;
+  width: 40vw;
+  display: flex;
+}
+
+label {
+  height: 40px;
+  width: 60px;
+  margin: auto;
+  border-radius: 10px;
+  position: relative;
+  color: "white";
+  transition: 0.5s;
+}
+
+.fa {
+  font-size: 25px;
+  font-weight: 1000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -80%);
+}
+label > span {
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  position: absolute;
+  margin-top: 5px;
+  left: 50%;
+  transform: translate(-50%, 80%);
+}
+
+input[type="checkbox"]:checked + label {
+  color: #119600;
+  box-shadow: 0 15px 45px rgb(24, 249, 141, 0.2);
+}
+
+.code {
+  text-align: left;
+}

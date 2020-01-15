@@ -94,7 +94,7 @@ const Graph = React.memo(
           .append("defs")
           .append("svg:pattern")
           .attrs({
-            id: `image${nodes[i].id}`,
+            id: `image${nodes[i].id}${realProps.id}`,
             x: "0",
             y: "0",
             height: "40",
@@ -207,14 +207,14 @@ const Graph = React.memo(
           .append("circle")
           .attr("r", realProps.radius == undefined ? 30 : realProps.radius)
           .attr("stroke", realProps.borderColor)
-          .attr("stroke-width", props.nodeStyle.borderWidth || 1)
+          .attr("stroke-width", realProps.borderWidth)
 
           .style(
             "fill",
             props.nodeStyle.background != "image" ||
               props.nodeStyle.background == undefined
               ? realProps.nodeBackground
-              : d => `url(#image${d.id})`
+              : d => `url(#image${d.id}${realProps.id})`
           );
 
         nodeEnter
@@ -231,7 +231,7 @@ const Graph = React.memo(
             "dy",
             props.nameStyle.y == "top"
               ? -realProps.radius - realProps.nameSize * 0.3
-              : realProps.radius + realProps.nameSize * 0.8
+              : realProps.radius + realProps.nameSize * 0.9
           )
 
           .attr("class", "nodeText")
@@ -281,12 +281,12 @@ const Graph = React.memo(
         // nodes positionings
         node.attr("transform", function(d) {
           d.x = Math.max(
-            realProps.radius,
-            Math.min(width - realProps.radius, d.x)
+            realProps.radius + realProps.borderWidth,
+            Math.min(width - realProps.radius - realProps.borderWidth, d.x)
           );
           d.y = Math.max(
-            realProps.radius,
-            Math.min(height - realProps.radius, d.y)
+            realProps.radius + realProps.borderWidth,
+            Math.min(height - realProps.radius - realProps.borderWidth, d.y)
           );
           return "translate(" + d.x + ", " + d.y + ")";
         });
@@ -387,7 +387,7 @@ const Graph = React.memo(
             .append("defs")
             .append("svg:pattern")
             .attrs({
-              id: `image${node.id}`,
+              id: `image${node.id}${realProps.id}`,
               x: "0",
               y: "0",
               class: "nodeImg",
@@ -508,6 +508,13 @@ const Graph = React.memo(
 
       if (props.id == undefined) realProps.id = "id";
       else realProps.id = props.id;
+
+      if (
+        props.nodeStyle.borderWidth == undefined ||
+        isNaN(props.nodeStyle.borderWidth)
+      )
+        realProps.borderWidth = 0;
+      else realProps.borderWidth = props.nodeStyle.borderWidth;
     }
 
     return (

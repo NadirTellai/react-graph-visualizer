@@ -1,8 +1,21 @@
+@import url("https://fonts.googleapis.com/css?family=Gelasio|Oswald&display=swap");
+
+body {
+  font-family: "Oswald", sans-serif;
+}
 .container {
   text-align: center;
   display: flex;
   flex-direction: column;
+  padding: 5rem 10rem 5rem 10rem;
 }
 .componentExample {
   margin-bottom: 1.5rem;
+}
+
+.comp-title {
+  text-align: left;
+}
+.credit {
+  font-size: smaller;
 }

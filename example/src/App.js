@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import Graph from "react-graph-visualizer";
 import "./app.css";
-import img1 from "./images/1.png";
+import CodeAndData from "./codeAndData/codeAndData.js";
 
 export default class App extends Component {
   render() {
     return (
       <div className="container">
+        <h1>React graph visualizer </h1>
         <div className="componentExample">
+          <h2 className="comp-title">Undirected weighted graph</h2>
+
           <Graph
             initialGraph={{
               nodes: [
@@ -61,9 +64,12 @@ export default class App extends Component {
             nameStyle={{ size: 15, color: "black", x: "right", y: "bottom" }}
             labelStyle={{ show: true, size: 10, color: "black" }}
           />
+          <CodeAndData component="one" />
         </div>
 
         <div className="componentExample">
+          <h2 className="comp-title">Directed unweighted graph</h2>
+
           <Graph
             initialGraph={{
               nodes: [
@@ -117,9 +123,12 @@ export default class App extends Component {
             nameStyle={{ size: 15, color: "black", x: "left", y: "top" }}
             labelStyle={{ show: false, size: 10, color: "black" }}
           />
+          <CodeAndData component="two" />
         </div>
 
         <div className="componentExample">
+          <h2 className="comp-title">Customizable style</h2>
+
           <Graph
             initialGraph={{
               nodes: [
@@ -173,16 +182,19 @@ export default class App extends Component {
             nameStyle={{ size: 15, color: "brown", x: "center", y: "top" }}
             labelStyle={{ show: true, size: 10, color: "orange" }}
           />
+          <CodeAndData component="three" />
         </div>
 
         <div className="componentExample">
+          <h2 className="comp-title">Nodes with images</h2>
+
           <Graph
             initialGraph={{
               nodes: [
                 {
                   name: "Node A",
                   id: 1,
-                  img: img1
+                  img: "https://i.imgur.com/epYTzoC.png"
                 },
                 {
                   name: "Node B",
@@ -230,9 +242,20 @@ export default class App extends Component {
               borderColor: "black",
               background: "image"
             }}
-            nameStyle={{ size: 15, color: "black", x: "left", y: "top" }}
+            nameStyle={{ size: 15, color: "black", x: "center", y: "bottom" }}
             labelStyle={{ show: false, size: 10, color: "black" }}
           />
+          <div className="credit">
+            Icons made by{" "}
+            <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
+              Freepik
+            </a>{" "}
+            from{" "}
+            <a href="https://www.flaticon.com/" title="Flaticon">
+              www.flaticon.com
+            </a>
+          </div>
+          <CodeAndData component="four" />
         </div>
       </div>
     );

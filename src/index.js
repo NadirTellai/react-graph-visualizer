@@ -7,15 +7,16 @@ import React, {
 import * as d3 from "d3";
 import "d3-selection-multi";
 import "./graph.css";
+const numWords = require("num-words");
 
 const Graph = React.memo(
   forwardRef((props, ref) => {
     const btn = useRef(null);
     var graph = props.initialGraph || { nodes: [], links: [] };
     var realProps = {};
+    propsValidation();
     var nodes = [];
     var links = [];
-    propsValidation();
 
     // set Graph function to call from parent
     useImperativeHandle(ref, () => ({
@@ -563,7 +564,12 @@ const Graph = React.memo(
       else realProps.backgroundColor = props.backgroundColor;
 
       if (props.id == undefined) realProps.id = "id";
-      else realProps.id = props.id;
+      else realProps.id = props.id.replace(/[0-9]/g, "").replace(/\s/g, "");
+
+      if (!realProps.id) {
+        realProps.id = numWords(props.id.replace(/\s/g, ""));
+        realProps.id = realProps.id.replace(/\s/g, "");
+      }
     }
 
     return (

@@ -17,7 +17,7 @@ the [**Demo**](https://nadirtellai.github.io/react-graph-visualizer/) contains f
 
 ### The debt settler app
 ### gif 
-the [**debt settler**](https://debt-settler-app.herokuapp.com/) is react app made using the react-graph-visualizer.
+the [**Debt settler**](https://debt-settler-app.herokuapp.com/) is react app made using the react-graph-visualizer.
 
 ## Usage
 

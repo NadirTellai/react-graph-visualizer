@@ -12,12 +12,12 @@ npm install --save react-graph-visualizer
 ```
 ## Examples 
 
-### demo
+### [Demo](https://nadirtellai.github.io/react-graph-visualizer/)
 the [**Demo**](https://nadirtellai.github.io/react-graph-visualizer/) contains five code examples with their results.
 
-### the debt settler app
+### [the debt settler app](https://debt-settler-app.herokuapp.com/)
 ### gif 
-the debt settler is react app made using the react-graph-visualizer.
+the [debt settler](https://debt-settler-app.herokuapp.com/) is react app made using the react-graph-visualizer.
 
 ## Usage
 

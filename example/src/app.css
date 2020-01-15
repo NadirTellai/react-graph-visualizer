@@ -7,7 +7,7 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
-  padding: 5rem 10rem 5rem 10rem;
+  padding: 5rem 20rem 5rem 20rem;
 }
 .componentExample {
   margin-bottom: 1.5rem;

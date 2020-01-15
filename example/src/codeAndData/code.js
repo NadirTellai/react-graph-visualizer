@@ -1,6 +1,5 @@
 var code = {
-  one: `
-  import React, { Component } from "react";
+  one: `import React, { Component } from "react";
   import Graph from "react-graph-visualizer";
 
   const App = () => {
@@ -14,10 +13,8 @@ var code = {
     );
   }
    
-  export default App;
-  `,
-  two: `
-  import React, { Component } from "react";
+  export default App;`,
+  two: `import React, { Component } from "react";
   import Graph from "react-graph-visualizer";
 
   const App = () => {
@@ -31,10 +28,8 @@ var code = {
     );
   }
    
-  export default App;
-  `,
-  three: `
-  import React, { Component } from "react";
+  export default App;`,
+  three: `import React, { Component } from "react";
   import Graph from "react-graph-visualizer";
 
   const App = () => {
@@ -57,10 +52,8 @@ var code = {
     );
   }
    
-  export default App;
-  `,
-  four: `
-  import React, { useRef } from "react";
+  export default App;`,
+  four: `import React, { useRef } from "react";
   import Graph from "react-graph-visualizer";
 
   const App = () => {
@@ -81,10 +74,8 @@ var code = {
     );
   }
    
-  export default App;
-  `,
-  five: `
-  import React, { Component } from "react";
+  export default App;`,
+  five: `import React, { Component } from "react";
   import Graph from "react-graph-visualizer";
 
   const App = () => {
@@ -102,8 +93,7 @@ var code = {
     );
   }
    
-  export default App;
-  `
+  export default App;`
 };
 
 export const Code = component => {

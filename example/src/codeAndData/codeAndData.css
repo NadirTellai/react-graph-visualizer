@@ -2,10 +2,13 @@
 input[type="checkbox"] {
   appearance: none;
 }
+
 .buttons {
   height: 20vh;
   width: 40vw;
   display: flex;
+  justify-content: center !important;
+  margin: 10px auto;
 }
 
 label {
@@ -15,7 +18,7 @@ label {
   border-radius: 10px;
   position: relative;
   color: "white";
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 .fa {

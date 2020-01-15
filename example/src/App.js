@@ -100,9 +100,9 @@ export default class App extends Component {
   render() {
     return (
       <div className="container">
-        <h1>React graph visualizer </h1>
+        <h1>React graph visualizer Demo </h1>
         <div className="componentExample">
-          <h2 className="comp-title">Undirected unweighted graph</h2>
+          <h2 className="comp-title">1. Undirected unweighted graph</h2>
 
           <Graph
             initialGraph={{
@@ -151,7 +151,7 @@ export default class App extends Component {
           <CodeAndData component="one" />
         </div>
         <div className="componentExample">
-          <h2 className="comp-title">Directed weighted graph</h2>
+          <h2 className="comp-title">2. Directed weighted graph</h2>
 
           <Graph
             initialGraph={{
@@ -200,7 +200,7 @@ export default class App extends Component {
           <CodeAndData component="two" />
         </div>
         <div className="componentExample">
-          <h2 className="comp-title">Customizable style</h2>
+          <h2 className="comp-title">3. Customizable style</h2>
 
           <Graph
             initialGraph={{
@@ -258,7 +258,7 @@ export default class App extends Component {
           <CodeAndData component="three" />
         </div>
         <div className="componentExample">
-          <h2 className="comp-title">Nodes with images</h2>
+          <h2 className="comp-title">4. Nodes with images</h2>
 
           <Graph
             initialGraph={{
@@ -325,7 +325,7 @@ export default class App extends Component {
           <CodeAndData component="four" />
         </div>
         <div className="componentExample">
-          <h2 className="comp-title">Dynamic graph</h2>
+          <h2 className="comp-title">5. Dynamic graph</h2>
 
           <div className="btn" onClick={this.addNode}>
             Add node

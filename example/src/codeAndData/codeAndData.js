@@ -53,7 +53,11 @@ const CodeAndData = props => {
       </div>
       {codeChecked && (
         <div className="code">
-          <SyntaxHighlighter language="javascript" style={darcula}>
+          <SyntaxHighlighter
+            showLineNumbers={true}
+            language="javascript"
+            style={darcula}
+          >
             {Code(props.component)}
           </SyntaxHighlighter>
         </div>

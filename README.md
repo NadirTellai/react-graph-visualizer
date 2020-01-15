@@ -76,7 +76,7 @@ graphRef.current.setGraph(newGraphData);
 |**linkStyle.distance**|number|300|The length of the links, or the distance between the nodes.|
 |**linkStyle.color**|string|black|Links color: "red", "orange", "#000", "#e5e6e7"|
 |**nodeStyle.radius**|number|30|The radius of nodes.|
-|**nodeStyle.borderWidth**|number|2|The width of the nodes borders.|
+|**nodeStyle.borderWidth**|number|0|The width of the nodes borders.|
 |**nodeStyle.borderColor**|string|black|The color of the nodes border.|
 |**nodeStyle.background**|string|black|The color of the nodes background.|
 |**nameStyle.size**|number|20|The size of the nodes name.|

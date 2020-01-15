@@ -51,18 +51,10 @@ export default class App extends Component {
               ]
             }}
             width={500}
-            id="pppz"
+            id="one"
             height={300}
-            backgroundColor={"#e5e6e7"}
-            linkStyle={{ directed: false, distance: 300, color: "black" }}
-            nodeStyle={{
-              radius: 10,
-              borderWidth: 2,
-              borderColor: "black",
-              background: "black"
-            }}
-            nameStyle={{ size: 15, color: "black", x: "right", y: "bottom" }}
-            labelStyle={{ show: true, size: 10, color: "black" }}
+            linkStyle={{ directed: false }}
+            labelStyle={{ show: true }}
           />
           <CodeAndData component="one" />
         </div>

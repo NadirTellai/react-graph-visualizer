@@ -1,36 +1,22 @@
 var code = {
-  one: `<Graph
-  initialGraph={}
-  width={500}
-  id="pppz"
-  height= {300}
-  backgroundColor={"#e5e6e7"}
-  linkStyle= {{ directed: false, distance: 300, color: "black" }}
-  nodeStyle={{
-    radius: 10,
-    borderWidth: 2,
-    borderColor: "black",
-    background: "black"
-  }}
-  nameStyle={{ size: 15, color: "black", x: "right", y: "bottom" }}
-  labelStyle={{ show: true, size: 10, color: "black" }}
-/>`,
-  two: `<Graph
-initialGraph={}
-width={500}
-id="pppz"
-height= {300}
-backgroundColor={"#e5e6e7"}
-linkStyle= {{ directed: false, distance: 300, color: "black" }}
-nodeStyle={{
-  radius: 10,
-  borderWidth: 2,
-  borderColor: "black",
-  background: "black"
-}}
-nameStyle={{ size: 15, color: "black", x: "right", y: "bottom" }}
-labelStyle={{ show: true, size: 10, color: "black" }}
-/>`
+  one: `
+  import React, { Component } from "react";
+  import Graph from "react-graph-visualizer";
+
+  const App = () => {
+    return ( 
+    <Graph
+      initialGraph={graphData}
+      width={500}
+      height={300}
+      linkStyle={{ directed: false }}
+      labelStyle={{ show: true }}
+    /> 
+    );
+  }
+   
+  export default App;
+  `
 };
 
 export const Code = component => {

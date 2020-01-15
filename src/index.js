@@ -209,27 +209,25 @@ const Graph = React.memo(
           .attr("stroke", realProps.borderColor)
           .attr("stroke-width", realProps.borderWidth)
 
-          .style(
-            "fill",
-            props.nodeStyle.background != "image" ||
-              props.nodeStyle.background == undefined
-              ? realProps.nodeBackground
-              : d => `url(#image${d.id}${realProps.id})`
+          .style("fill", d =>
+            realProps.nodeBackground == "image"
+              ? `url(#image${d.id}${realProps.id})`
+              : realProps.nodeBackground
           );
 
         nodeEnter
           .append("text")
           .attr("dx", d => {
-            return props.nameStyle.x == "right"
+            return realProps.x == "right"
               ? 0.4 * realProps.radius
-              : props.nameStyle.x == "left"
+              : realProps.x == "left"
               ? -((realProps.nameSize * 0.7 * d.name.length) / 2) -
                 realProps.radius
               : (-d.name.length / 2) * realProps.nameSize * 0.5;
           })
           .attr(
             "dy",
-            props.nameStyle.y == "top"
+            realProps.y == "top"
               ? -realProps.radius - realProps.nameSize * 0.3
               : realProps.radius + realProps.nameSize * 0.9
           )
@@ -431,53 +429,120 @@ const Graph = React.memo(
     }
 
     function propsValidation() {
-      if (
-        props.nodeStyle.borderColor == undefined ||
-        !isColor(props.nodeStyle.borderColor)
-      )
-        realProps.borderColor = "black";
-      else realProps.borderColor = props.nodeStyle.borderColor;
+      // -------nodeStyle --------------------
 
-      if (props.nodeStyle.radius == undefined || isNaN(props.nodeStyle.radius))
-        realProps.radius = 30;
-      else realProps.radius = props.nodeStyle.radius;
+      if (props.nodeStyle) {
+        if (
+          props.nodeStyle.borderWidth == undefined ||
+          isNaN(props.nodeStyle.borderWidth)
+        )
+          realProps.borderWidth = 0;
+        else realProps.borderWidth = props.nodeStyle.borderWidth;
+        if (
+          props.nodeStyle.borderColor == undefined ||
+          !isColor(props.nodeStyle.borderColor)
+        )
+          realProps.borderColor = "black";
+        else realProps.borderColor = props.nodeStyle.borderColor;
 
-      if (
-        props.linkStyle.distance == undefined ||
-        isNaN(props.linkStyle.distance)
-      )
-        realProps.distance = 300;
-      else realProps.distance = props.linkStyle.distance;
+        if (
+          props.nodeStyle.radius == undefined ||
+          isNaN(props.nodeStyle.radius)
+        )
+          realProps.radius = 30;
+        else realProps.radius = props.nodeStyle.radius;
 
-      if (props.linkStyle.color == undefined || !isColor(props.linkStyle.color))
-        realProps.linkColor = "black";
-      else realProps.linkColor = props.linkStyle.color;
-
-      if (props.labelStyle.size == undefined || isNaN(props.labelStyle.size))
-        realProps.labelSize = 10;
-      else realProps.labelSize = props.labelStyle.size;
-
-      if (
-        props.labelStyle.color == undefined ||
-        !isColor(props.labelStyle.color)
-      )
-        realProps.labelColor = "black";
-      else realProps.labelColor = props.labelStyle.color;
-
-      if (
-        props.nodeStyle.background == undefined ||
-        !isColor(props.nodeStyle.background)
-      )
+        if (
+          props.nodeStyle.background == undefined ||
+          !isColor(props.nodeStyle.background)
+        )
+          realProps.nodeBackground = "black";
+        else realProps.nodeBackground = props.nodeStyle.background;
+        if (props.nodeStyle.background == "image")
+          realProps.nodeBackground = "image";
+      } else {
         realProps.nodeBackground = "black";
-      else realProps.nodeBackground = props.nodeStyle.background;
+        realProps.radius = 30;
+        realProps.borderColor = "black";
+        realProps.borderWidth = 0;
+      }
 
-      if (props.nameStyle.color == undefined || !isColor(props.nameStyle.color))
+      // -------linkStyle --------------------
+      if (props.linkStyle) {
+        if (
+          props.linkStyle.directed == undefined ||
+          typeof props.linkStyle.directed != "boolean"
+        )
+          realProps.directed = `url(#arrowhead${realProps.id})`;
+        else
+          realProps.directed = props.linkStyle.directed
+            ? `url(#arrowhead${realProps.id})`
+            : "none";
+        if (
+          props.linkStyle.distance == undefined ||
+          isNaN(props.linkStyle.distance)
+        )
+          realProps.distance = 300;
+        else realProps.distance = props.linkStyle.distance;
+
+        if (
+          props.linkStyle.color == undefined ||
+          !isColor(props.linkStyle.color)
+        )
+          realProps.linkColor = "black";
+        else realProps.linkColor = props.linkStyle.color;
+      } else {
+        realProps.directed = `url(#arrowhead${realProps.id})`;
+        realProps.linkColor = "black";
+        realProps.distance = 300;
+      }
+
+      // -------labelStyle --------------------
+
+      if (props.labelStyle) {
+        if (props.labelStyle.size == undefined || isNaN(props.labelStyle.size))
+          realProps.labelSize = 10;
+        else realProps.labelSize = props.labelStyle.size;
+
+        if (
+          props.labelStyle.color == undefined ||
+          !isColor(props.labelStyle.color)
+        )
+          realProps.labelColor = "black";
+        else realProps.labelColor = props.labelStyle.color;
+        if (
+          props.labelStyle.show == undefined ||
+          typeof props.labelStyle.show != "boolean"
+        )
+          realProps.showLabel = false;
+        else realProps.showLabel = props.labelStyle.show;
+      } else {
+        realProps.labelSize = 10;
+        realProps.labelColor = "black";
+        realProps.showLabel = false;
+      }
+
+      // -------nameStyle --------------------
+      if (props.nameStyle) {
+        if (
+          props.nameStyle.color == undefined ||
+          !isColor(props.nameStyle.color)
+        )
+          realProps.nameColor = "black";
+        else realProps.nameColor = props.nameStyle.color;
+
+        if (props.nameStyle.size == undefined || isNaN(props.nameStyle.size))
+          realProps.nameSize = 20;
+        else realProps.nameSize = props.nameStyle.size;
+        if (props.nameStyle.x != "right" || props.nameStyle.x != "left")
+          realProps.x = "center";
+        if (props.nameStyle.y != "top") realProps.y = "bottom";
+      } else {
         realProps.nameColor = "black";
-      else realProps.nameColor = props.nameStyle.color;
-
-      if (props.nameStyle.size == undefined || isNaN(props.nameStyle.size))
         realProps.nameSize = 20;
-      else realProps.nameSize = props.nameStyle.size;
+        realProps.y = "bottom";
+        realProps.x = "center";
+      }
 
       if (props.width == undefined || isNaN(props.width)) realProps.width = 700;
       else realProps.width = props.width;
@@ -485,36 +550,12 @@ const Graph = React.memo(
         realProps.height = 500;
       else realProps.height = props.height;
 
-      if (
-        props.labelStyle.show == undefined ||
-        typeof props.labelStyle.show != "boolean"
-      )
-        realProps.showLabel = false;
-      else realProps.showLabel = props.labelStyle.show;
-
       if (props.backgroundColor == undefined || !isColor(props.backgroundColor))
         realProps.backgroundColor = "#e5e6e7";
       else realProps.backgroundColor = props.backgroundColor;
 
-      if (
-        props.linkStyle.directed == undefined ||
-        typeof props.linkStyle.directed != "boolean"
-      )
-        realProps.directed = `url(#arrowhead${realProps.id})`;
-      else
-        realProps.directed = props.linkStyle.directed
-          ? `url(#arrowhead${realProps.id})`
-          : "none";
-
       if (props.id == undefined) realProps.id = "id";
       else realProps.id = props.id;
-
-      if (
-        props.nodeStyle.borderWidth == undefined ||
-        isNaN(props.nodeStyle.borderWidth)
-      )
-        realProps.borderWidth = 0;
-      else realProps.borderWidth = props.nodeStyle.borderWidth;
     }
 
     return (

@@ -449,7 +449,7 @@ const Graph = React.memo(
           props.nodeStyle.radius == undefined ||
           isNaN(props.nodeStyle.radius)
         )
-          realProps.radius = 30;
+          realProps.radius = 20;
         else realProps.radius = props.nodeStyle.radius;
 
         if (
@@ -462,7 +462,7 @@ const Graph = React.memo(
           realProps.nodeBackground = "image";
       } else {
         realProps.nodeBackground = "black";
-        realProps.radius = 30;
+        realProps.radius = 20;
         realProps.borderColor = "black";
         realProps.borderWidth = 0;
       }
@@ -534,9 +534,17 @@ const Graph = React.memo(
         if (props.nameStyle.size == undefined || isNaN(props.nameStyle.size))
           realProps.nameSize = 20;
         else realProps.nameSize = props.nameStyle.size;
-        if (props.nameStyle.x != "right" || props.nameStyle.x != "left")
+
+        if (
+          (props.nameStyle.x != "right" && props.nameStyle.x != "left") ||
+          props.nameStyle.x == undefined
+        )
           realProps.x = "center";
-        if (props.nameStyle.y != "top") realProps.y = "bottom";
+        else realProps.x = props.nameStyle.x;
+
+        if (props.nameStyle.y != "top" || props.nameStyle.y == undefined)
+          realProps.y = "bottom";
+        else realProps.y = props.nameStyle.y;
       } else {
         realProps.nameColor = "black";
         realProps.nameSize = 20;

@@ -4,12 +4,105 @@ import "./app.css";
 import CodeAndData from "./codeAndData/codeAndData.js";
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.graphRef = React.createRef();
+    this.addNode = this.addNode.bind(this);
+    this.removeNode = this.removeNode.bind(this);
+  }
+
+  addNode() {
+    this.graphRef.current.setGraph({
+      nodes: [
+        {
+          name: "Node A",
+          id: 1
+        },
+        {
+          name: "Node B",
+          id: 2
+        },
+        {
+          name: "Node C",
+          id: 3
+        },
+        {
+          name: "Node D",
+          id: 4
+        },
+        {
+          name: "Node E",
+          id: 5
+        }
+      ],
+      links: [
+        {
+          source: 1,
+          target: 2
+        },
+        {
+          source: 1,
+          target: 3
+        },
+
+        {
+          source: 3,
+          target: 4
+        },
+        {
+          source: 5,
+          target: 4
+        }
+      ]
+    });
+  }
+
+  removeNode() {
+    this.graphRef.current.setGraph({
+      nodes: [
+        {
+          name: "Node A",
+          id: 1
+        },
+        {
+          name: "Node B",
+          id: 2
+        },
+        {
+          name: "Node C",
+          id: 3
+        },
+        {
+          name: "Node D",
+          id: 4
+        }
+      ],
+      links: [
+        {
+          source: 1,
+          target: 2,
+          label: "A - b"
+        },
+        {
+          source: 1,
+          target: 3,
+          label: "A - C"
+        },
+
+        {
+          source: 3,
+          target: 4,
+          label: "C - D"
+        }
+      ]
+    });
+  }
   render() {
     return (
       <div className="container">
         <h1>React graph visualizer </h1>
         <div className="componentExample">
-          <h2 className="comp-title">Undirected weighted graph</h2>
+          <h2 className="comp-title">Undirected unweighted graph</h2>
 
           <Graph
             initialGraph={{
@@ -54,13 +147,11 @@ export default class App extends Component {
             id="one"
             height={300}
             linkStyle={{ directed: false }}
-            labelStyle={{ show: true }}
           />
           <CodeAndData component="one" />
         </div>
-
         <div className="componentExample">
-          <h2 className="comp-title">Directed unweighted graph</h2>
+          <h2 className="comp-title">Directed weighted graph</h2>
 
           <Graph
             initialGraph={{
@@ -102,22 +193,12 @@ export default class App extends Component {
               ]
             }}
             width={500}
-            id="qsdqds"
+            id="two"
             height={300}
-            backgroundColor={"#e5e6e7"}
-            linkStyle={{ directed: true, distance: 300, color: "black" }}
-            nodeStyle={{
-              radius: 20,
-              borderWidth: 2,
-              borderColor: "black",
-              background: "black"
-            }}
-            nameStyle={{ size: 15, color: "black", x: "left", y: "top" }}
-            labelStyle={{ show: false, size: 10, color: "black" }}
+            labelStyle={{ show: true }}
           />
           <CodeAndData component="two" />
         </div>
-
         <div className="componentExample">
           <h2 className="comp-title">Customizable style</h2>
 
@@ -164,19 +245,18 @@ export default class App extends Component {
             id="three"
             height={300}
             backgroundColor={"grey"}
-            linkStyle={{ directed: true, distance: 300, color: "green" }}
+            linkStyle={{ directed: false, distance: 150, color: "green" }}
             nodeStyle={{
-              radius: 20,
+              radius: 15,
               borderWidth: 2,
-              borderColor: "black",
+              borderColor: "orange",
               background: "red"
             }}
-            nameStyle={{ size: 15, color: "brown", x: "center", y: "top" }}
-            labelStyle={{ show: true, size: 10, color: "orange" }}
+            nameStyle={{ size: 13, color: "brown", x: "right", y: "top" }}
+            labelStyle={{ show: true, size: 15, color: "orange" }}
           />
           <CodeAndData component="three" />
         </div>
-
         <div className="componentExample">
           <h2 className="comp-title">Nodes with images</h2>
 
@@ -226,16 +306,11 @@ export default class App extends Component {
             width={500}
             id="four"
             height={300}
-            backgroundColor={"#e5e6e7"}
-            linkStyle={{ directed: true, distance: 300, color: "black" }}
             nodeStyle={{
-              radius: 20,
               borderWidth: 2,
               borderColor: "black",
               background: "image"
             }}
-            nameStyle={{ size: 15, color: "black", x: "center", y: "bottom" }}
-            labelStyle={{ show: false, size: 10, color: "black" }}
           />
           <div className="credit">
             Icons made by{" "}
@@ -248,6 +323,62 @@ export default class App extends Component {
             </a>
           </div>
           <CodeAndData component="four" />
+        </div>
+        <div className="componentExample">
+          <h2 className="comp-title">Dynamic graph</h2>
+
+          <div className="btn" onClick={this.addNode}>
+            Add node
+          </div>
+          <div className="btn" onClick={this.removeNode}>
+            Remove node
+          </div>
+
+          <Graph
+            ref={this.graphRef}
+            initialGraph={{
+              nodes: [
+                {
+                  name: "Node A",
+                  id: 1
+                },
+                {
+                  name: "Node B",
+                  id: 2
+                },
+                {
+                  name: "Node C",
+                  id: 3
+                },
+                {
+                  name: "Node D",
+                  id: 4
+                }
+              ],
+              links: [
+                {
+                  source: 1,
+                  target: 2,
+                  label: "A - b"
+                },
+                {
+                  source: 1,
+                  target: 3,
+                  label: "A - C"
+                },
+
+                {
+                  source: 3,
+                  target: 4,
+                  label: "C - D"
+                }
+              ]
+            }}
+            width={500}
+            id="five"
+            height={300}
+          />
+          <CodeAndData component="five" />
         </div>
       </div>
     );

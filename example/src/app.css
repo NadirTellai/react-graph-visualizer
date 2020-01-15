@@ -19,3 +19,24 @@ body {
 .credit {
   font-size: smaller;
 }
+
+.btn {
+  color: #fff !important;
+  width: 100px;
+  margin: 0px 20px 30px 0px;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #161616;
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #434343;
+  box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.4s ease 0s;
+}

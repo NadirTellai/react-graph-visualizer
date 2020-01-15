@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./codeAndData.css";
 import { Code } from "./code";
-import Data from "./data";
+import { Data } from "./data";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { darcula } from "react-syntax-highlighter/dist/esm/styles/prism";
 
@@ -58,7 +58,13 @@ const CodeAndData = props => {
           </SyntaxHighlighter>
         </div>
       )}
-      {dataChecked && <Data component={props.component} />}
+      {dataChecked && (
+        <div className="code">
+          <SyntaxHighlighter language="javascript" style={darcula}>
+            {Data(props.component)}
+          </SyntaxHighlighter>
+        </div>
+      )}
     </div>
   );
 };

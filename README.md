@@ -11,11 +11,14 @@
 npm install --save react-graph-visualizer
 ```
 ## Examples 
-### gif 
+
 ### demo
-the demo contains multiple code examples with their results.
+the [**Demo**](https://nadirtellai.github.io/react-graph-visualizer/) contains five code examples with their results.
+
 ### the debt settler app
+### gif 
 the debt settler is react app made using the react-graph-visualizer.
+
 ## Usage
 
 ```jsx
@@ -63,8 +66,9 @@ graphRef.current.setGraph(newGraphData);
 ```
 
 ## API 
-| Prop         | Type          | Default  |Description|
+|      Prop    |     Type      | Default  |Description|
 | :------------- |:-------------| :-----|:----|
+|**id**|string|/|component id, required when using multiple component in the same page.|
 |**initialGraph**|object|``` {nodes:[],links:[]} ```|Graph initial data|
 |**initialGraph.nodes**|Array |[]|The nodes array of objects ``` {name:string, id:number, img=string}``` |
 |**initialGraph.links**|Array|[]|The links array of objects ```{source:number, target:number, label:string}```|

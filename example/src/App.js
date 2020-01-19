@@ -100,7 +100,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="container">
-        <h1>React graph visualizer Demo </h1>
+        <h1 className="theTitle">React graph visualizer Demo </h1>
         <div className="componentExample">
           <h2 className="comp-title">1. Undirected unweighted graph</h2>
 

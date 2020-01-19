@@ -7,15 +7,12 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
-  padding: 5rem 20rem 5rem 20rem;
+  padding: 5rem 8vw 5rem 8vw;
 }
 .componentExample {
   margin-bottom: 1.5rem;
 }
 
-.comp-title {
-  text-align: left;
-}
 .credit {
   font-size: smaller;
 }
@@ -39,4 +36,25 @@ body {
   background: #434343;
   box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
   transition: all 0.4s ease 0s;
+}
+
+.comp-title {
+  text-align: left;
+}
+@media screen and (min-width: 1000px) {
+  .theTitle {
+    font-size: 25px !important;
+  }
+  .comp-title {
+    font-size: 5px !important;
+  }
+}
+@media screen and (min-width: 320px) {
+  .theTitle {
+    font-size: calc(20px + 6 * ((100vw - 320px) / 680));
+  }
+
+  .comp-title {
+    font-size: calc(18px + 6 * ((100vw - 320px) / 680)) !important;
+  }
 }

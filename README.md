@@ -96,6 +96,13 @@ graphRef.current.setGraph(newGraphData);
 | **labelStyle.size**       | number     | 10                    | The size of the labels.                                                   |
 | **labelStyle.color**      | string     | black                 | The color of the labels                                                   |
 
+## Contribution
+
+1. `npm install`
+2. `cd example && npm install`
+3. `npm start`
+4. `cd example && npm start`in a diffrent terminal.
+
 ## License
 
 MIT © [NadirTellai](https://github.com/NadirTellai)

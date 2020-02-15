@@ -14,7 +14,7 @@ npm install --save react-graph-visualizer
 
 ### 1. Demo
 
-the **Demo**contains five code examples with their results.
+the **Demo** contains five code examples with their results.
 
 ### 2. The debt settler app
 
